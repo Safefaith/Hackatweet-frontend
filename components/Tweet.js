@@ -31,10 +31,10 @@ function Tweet(props) {
           icon={faHeart}
           onClick={() => handleLike()}
           style={heartIconStyle}
-          className="like"
+          className={styles.iconTweet}
         />
         <span>(like count) </span>
-        <FontAwesomeIcon icon={faTrash} />
+        <FontAwesomeIcon className={styles.iconTweet} icon={faTrash} />
       </div>
     </div>
   );
