@@ -5,7 +5,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Hello you</title>
+        <title>Hackatweet</title>
       </Head>
       <Component {...pageProps} />
     </>
