@@ -3,6 +3,7 @@ import Image from "next/image";
 import ModalSignIn from "../components/ModalSignIn";
 import ModalSignUp from "./ModalSignUp";
 import { useState } from "react";
+import Head from "next/head";
 
 function Login() {
   //  Etat de la modalSignIn
@@ -12,6 +13,12 @@ function Login() {
 
   return (
     <div>
+      <Head>
+        <title>Hackatweet-Login</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Login-Hackatweet" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <main className={styles.main}>
         <div className={styles.leftMain}>
           <Image src="/logo.png" alt="Logo" width={300} height={300} />

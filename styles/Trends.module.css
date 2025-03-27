@@ -72,20 +72,29 @@
     justify-content: space-between;
 }
 
+.inputContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
 
 
-.tweetInput {
+.hashtagInput {
     border-style: none;
-    border-bottom: 1px solid rgb(70, 70, 70);
-    background: transparent;
+    /* border-bottom: 1px solid rgb(70, 70, 70); */
+    background: rgb(27, 35, 45);
     width: 80%;
     height: 5vh;
     color: white;
+    border-radius: 30px;
     padding: 10px;
 }
 
-.tweetInput:focus {
+.hashtagInput:focus {
     outline: none;
+    color: white;
 }
 
 .tweetBtnContainer {

@@ -1,4 +1,4 @@
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Trends.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import { logout } from "../reducers/user";
@@ -7,7 +7,7 @@ import Link from "next/link";
 import Tweet from "./Tweet";
 import Head from "next/head";
 
-function Home() {
+function Trends() {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.value.username);
 
@@ -18,11 +18,11 @@ function Home() {
   const [message, setMessage] = useState("");
 
   return (
-    <div>
+    <>
       <Head>
-        <title>Hackatweet-Home</title>
+        <title>Hackatweet-Trends</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Home-Hackatweet" />
+        <meta name="description" content="Trends-Hackatweet" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main className={styles.main}>
@@ -57,26 +57,20 @@ function Home() {
 
         <div className={styles.mainHome}>
           <div className={styles.topMainHome}>
-            <h2>Home</h2>
-            <input
-              className={styles.tweetInput}
-              placeholder="What's up?"
-              type="text"
-              maxLength="280"
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              value={message}
-            ></input>
-            <div className={styles.tweetBtnContainer}>
-              <span>{message.length}/280</span>
-              <button className={styles.tweetBtn}>Tweet</button>
+            <h2>Hashtag</h2>
+            <div className={styles.inputContainer}>
+              <input
+                className={styles.hashtagInput}
+                placeholder="Search with #"
+                type="text"
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+                value={message}
+              ></input>
             </div>
           </div>
           <div className={styles.tweetSection}>
-            <Link href="/trends">
-              <button>Go to Trends Page</button>
-            </Link>
             <Tweet />
           </div>
         </div>
@@ -85,8 +79,8 @@ function Home() {
           <h2>Trends</h2>
         </div>
       </main>
-    </div>
+    </>
   );
 }
 
-export default Home;
+export default Trends;

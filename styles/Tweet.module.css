@@ -1,4 +1,4 @@
-.tweetContainer{
+.tweetContainer {
     color: white;
     display: flex;
     flex-direction: column;
@@ -7,15 +7,20 @@
     padding: 10px;
 }
 
-.tweetLine{
+.tweetLine {
     margin: 5px 0;
 }
 
-.hashtag{
-    color:dodgerblue;
+.hashtag {
+    color: dodgerblue;
 }
 
-.hashtag:hover{
-    color:rgb(124, 189, 255);
+.hashtag:hover {
+    color: rgb(124, 189, 255);
     cursor: pointer;
+}
+
+.iconTweet {
+    height: 30px;
+    width: 30px;
 }

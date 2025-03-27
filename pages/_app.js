@@ -2,9 +2,9 @@ import "../styles/globals.css";
 import Head from "next/head";
 
 // Redux
-import { Provider } from 'react-redux';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import user from '../reducers/user';
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import user from "../reducers/user";
 
 // Redux-persist
 /*
@@ -22,9 +22,6 @@ const store = configureStore({
 function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <Head>
-        <title>Hackatweet</title>
-      </Head>
       <Component {...pageProps} />
     </Provider>
   );
