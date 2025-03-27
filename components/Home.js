@@ -1,10 +1,14 @@
 import styles from "../styles/Home.module.css";
-import Image from "next/image";
+
 import { useState } from "react";
 import { logout } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
+
+import Image from "next/image";
 import Link from "next/link";
-import Tweet from "./Tweet";
+
+import LastTweets from "./LastTweets";
+import Trends from "./Trends";
 
 function Home() {
   const dispatch = useDispatch();
@@ -14,7 +18,8 @@ function Home() {
     dispatch(logout());
   };
 
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
+
 
   return (
     <div>
@@ -59,12 +64,15 @@ function Home() {
             </div>
           </div>
           <div className={styles.tweetSection}>
-            <Tweet />
+            <LastTweets/>
           </div>
         </div>
 
         <div className={styles.rightHome}>
           <h2>Trends</h2>
+        </div>
+        <div className={styles.trendsContainer}>
+          {Trends}
         </div>
       </main>
     </div>
