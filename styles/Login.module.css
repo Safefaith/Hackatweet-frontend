@@ -45,17 +45,28 @@
   background: rgb(54, 144, 238);
   color: white;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.signUpBtn:hover {
+  background: rgba(54, 143, 238, 0.685);
 }
 
 .signInBtn {
   height: 4vh;
   width: 10vw;
   border-radius: 30px;
-  border: 1px solid white;
+  border: 0.5px solid rgba(119, 119, 119, 0.644);
   background: transparent;
-  color: rgb(54, 144, 238);
+  color: rgb(19, 87, 175);
   cursor: pointer;
+  font-weight: bold;
 }
+
+.signInBtn:hover {
+  background: rgba(45, 51, 58, 0.753);
+}
+
 
 .h3Main {
   color: white;
