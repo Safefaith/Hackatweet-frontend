@@ -4,7 +4,7 @@ import { useState } from "react";
 import { logout } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import Tweet from './Tweet';
+import Tweet from "./Tweet";
 
 function Home() {
   const dispatch = useDispatch();
@@ -14,14 +14,11 @@ function Home() {
     dispatch(logout());
   };
 
-  const [lengthCount, setLengthCount] = useState(0);
-  const [message, setMessage] = useState('');
-
+  const [message, setMessage] = useState("");
 
   return (
     <div>
       <main className={styles.main}>
-
         <div className={styles.leftHome}>
           <Image src="/logo.png" alt="Logo" width={80} height={80} />
           <div className={styles.bottomLeft}>
@@ -51,26 +48,24 @@ function Home() {
               placeholder="What's up?"
               type="text"
               maxLength="280"
-              onChange={e => {
+              onChange={(e) => {
                 setMessage(e.target.value);
-                setLengthCount(message.length);
               }}
               value={message}
             ></input>
             <div className={styles.tweetBtnContainer}>
-              <span>{lengthCount}/280</span>
+              <span>{message.length}/280</span>
               <button className={styles.tweetBtn}>Tweet</button>
             </div>
           </div>
           <div className={styles.tweetSection}>
-            <Tweet/>
+            <Tweet />
           </div>
         </div>
 
         <div className={styles.rightHome}>
           <h2>Trends</h2>
         </div>
-
       </main>
     </div>
   );
