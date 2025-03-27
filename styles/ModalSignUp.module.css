@@ -17,7 +17,7 @@
 }
 
 .modal {
-    width: 400px;
+    width: 450px;
     height: 350px;
     background: rgb(21, 29, 39);
     color: white;
@@ -59,11 +59,23 @@
     width: 100%;
 }
 
-.inputModal {
+.inputModalContainer {
     display: flex;
     flex-direction: column;
-    margin: 10px;
     gap: 10px;
+}
+
+.inputModal {
+    height: 35px;
+    background: transparent;
+    border: 1px solid grey;
+    color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.inputModal:focus {
+    outline: none;
 }
 
 .actionsContainer {
@@ -71,6 +83,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .closeBtn {
@@ -80,16 +93,14 @@
     border-radius: 8px;
     border: none;
     font-size: 18px;
-    color: #2c3e50;
-    background: white;
+    color: white;
+    background: transparent;
     transition: all 0.25s ease;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
     position: absolute;
     right: 0;
     top: 0;
     align-self: flex-end;
-    margin-top: -7px;
-    margin-right: -7px;
 }
 
 .closeBtn:hover {
@@ -111,10 +122,10 @@
     width: 200px;
 }
 
-.deleteBtn:hover {
-    box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
-    transform: translateY(-5px);
-    background: #ff3e4e;
+.signInBtn:hover {
+    transform: translateY(-2px);
+    background: #9c9c9c83;
+    color: white;
 }
 
 .cancelBtn {

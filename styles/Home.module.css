@@ -73,6 +73,7 @@
     background: transparent;
     width: 80%;
     height: 5vh;
+    color: white;
 }
 
 .tweetInput:focus {

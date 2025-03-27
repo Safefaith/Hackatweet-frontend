@@ -8,3 +8,8 @@ body {
 * {
   box-sizing: border-box;
 }
+
+* ::selection {
+  color: rgba(54, 143, 238, 0.671);
+  background: rgba(255, 255, 255, 0.671);
+}
