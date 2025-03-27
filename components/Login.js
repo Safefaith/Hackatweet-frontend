@@ -1,10 +1,6 @@
 import styles from "../styles/Login.module.css";
 import Image from "next/image";
-<<<<<<< HEAD
-import ModalSignUp from "./Signup";
-=======
 import ModalSignIn from "../components/ModalSignIn";
->>>>>>> 3683a8561c170c5e23f5596057a49c9bd895b8d8
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
