@@ -13,8 +13,12 @@ function Login() {
           <h1 className={styles.h1Main}>See what's happening</h1>
           <h2 className={styles.h2Main}>Join Hackatweet today.</h2>
           <button className={styles.signUpBtn}>Sign up</button>
+          <input type="text" placeholder="Username"></input>
+          <input type="password" placeholder="Password"></input>
           <h3 className={styles.h3Main}>Already have an account?</h3>
           <button className={styles.signInBtn}>Sign in</button>
+          <input type="text" placeholder="Username"></input>
+          <input type="password" placeholder="Password"></input>
         </div>
       </main>
     </div>
