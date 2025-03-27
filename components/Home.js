@@ -1,8 +1,18 @@
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import { logout } from "../reducers/user";
+import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
 
 function Home() {
+  const dispatch = useDispatch();
+  const username = useSelector((state) => state.user.value.username);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <div>
       <main className={styles.main}>
@@ -12,11 +22,18 @@ function Home() {
             <div className={styles.userContainer}>
               <Image src="/logo.png" alt="Logo" width={50} height={50} />
               <div className={styles.userName}>
-                <p>John</p>
-                <p>@JohnCena</p>
+                <span>{username}</span>
+                <p>@{username}</p>
               </div>
             </div>
-            <button className={styles.btnLogout}>Logout</button>
+            <Link href="/">
+              <button
+                onClick={() => handleLogout()}
+                className={styles.btnLogout}
+              >
+                Logout
+              </button>
+            </Link>
           </div>
         </div>
         <div className={styles.mainHome}>
