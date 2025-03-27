@@ -1,0 +1,107 @@
+.main {
+    display: flex;
+}
+
+.leftHome {
+    height: 100vh;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(21, 29, 39);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.bottomLeft {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+
+.userContainer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.userName {
+    color: white;
+    margin-left: 15px;
+}
+
+.btnLogout {
+    height: 3vh;
+    width: 7vw;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.mainHome {
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-right: 0.3px solid white;
+    border-left: 0.3px solid white;
+    background: rgb(21, 29, 39);
+}
+
+.topMainHome {
+    border-bottom: 1px solid white;
+    width: 100%;
+    height: 30%;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tweetInput {
+    border-style: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    width: 80%;
+    height: 5vh;
+}
+
+.tweetInput:focus {
+    outline: none;
+    color: white;
+}
+
+.tweetBtnContainer {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+}
+
+.tweetBtn {
+    height: 3vh;
+    width: 5vw;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.rightHome {
+    height: 100vh;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(21, 29, 39);
+}
