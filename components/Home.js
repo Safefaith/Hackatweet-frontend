@@ -14,9 +14,14 @@ function Home() {
     dispatch(logout());
   };
 
+  const [lengthCount, setLengthCount] = useState(0);
+  const [message, setMessage] = useState('');
+
+
   return (
     <div>
       <main className={styles.main}>
+
         <div className={styles.leftHome}>
           <Image src="/logo.png" alt="Logo" width={80} height={80} />
           <div className={styles.bottomLeft}>
@@ -37,34 +42,35 @@ function Home() {
             </Link>
           </div>
         </div>
+
         <div className={styles.mainHome}>
           <div className={styles.topMainHome}>
-            <h1>Home</h1>
+            <h2>Home</h2>
             <input
               className={styles.tweetInput}
-              placeholder="What's up ?"
+              placeholder="What's up?"
               type="text"
               maxLength="280"
+              onChange={e => {
+                setMessage(e.target.value);
+                setLengthCount(message.length);
+              }}
+              value={message}
             ></input>
             <div className={styles.tweetBtnContainer}>
-              <span> / 280</span>
+              <span>{lengthCount}/280</span>
               <button className={styles.tweetBtn}>Tweet</button>
             </div>
           </div>
           <div className={styles.tweetSection}>
             <Tweet/>
-            <div>
-              <div>
-                <Image src="/logo.png" alt="Logo" width={50} height={50} />
-                <p>Antoine</p>
-                <p> @AntoineLeProf</p>
-                <p>. 5 hours</p>
-              </div>
-              <p> Welcome to #hackatweet guys </p>
-            </div>
           </div>
         </div>
-        <div className={styles.rightHome}></div>
+
+        <div className={styles.rightHome}>
+          <h2>Trends</h2>
+        </div>
+
       </main>
     </div>
   );

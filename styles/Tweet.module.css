@@ -14,3 +14,8 @@
 .hashtag{
     color:dodgerblue;
 }
+
+.hashtag:hover{
+    color:rgb(124, 189, 255);
+    cursor: pointer;
+}
