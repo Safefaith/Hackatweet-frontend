@@ -1,0 +1,16 @@
+.tweetContainer{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    padding: 10px;
+}
+
+.tweetLine{
+    margin: 5px 0;
+}
+
+.hashtag{
+    color:dodgerblue;
+}

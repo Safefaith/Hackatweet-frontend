@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import Tweet from './Tweet';
 
 function Home() {
   return (
@@ -34,6 +35,7 @@ function Home() {
             </div>
           </div>
           <div className={styles.tweetSection}>
+            <Tweet/>
             <div>
               <div>
                 <Image src="/logo.png" alt="Logo" width={50} height={50} />

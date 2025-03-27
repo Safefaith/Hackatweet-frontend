@@ -1,6 +1,5 @@
 import styles from "../styles/Login.module.css";
 import Image from "next/image";
-import { useState } from "react";
 import ModalSignUp from "./Signup";
 import Link from "next/link";
 
