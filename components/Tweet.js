@@ -24,11 +24,28 @@ function Tweet(props) {
   };
 
 
+
+  const formatMessage = (message) => {
+    const hashtagRegex = /#\w+/g;
+
+    return message.split(/(\s+)/).map((word, index) => {
+      if (hashtagRegex.test(word)) {
+        return (
+          <span key={index} className={styles.hashtag}>
+            {word}
+          </span>
+        );
+      }
+      return <span key={index}>{word}</span>;
+    });
+  };
   // ♥ tweet
   let heartIconStyle = { cursor: "pointer" };
   const handleLike = () => {
     props.isLiked = !isLiked;
-    isLiked ? heartIconStyle = { color: "red", cursor: "pointer" } : heartIconStyle = { color: "white", cursor: "pointer" };
+    isLiked
+      ? (heartIconStyle = { color: "red", cursor: "pointer" })
+      : (heartIconStyle = { color: "white", cursor: "pointer" });
   };
 
   return (
@@ -41,12 +58,14 @@ function Tweet(props) {
           height={50}
           style={{ borderRadius: "100%" }}
         />
-        <span>@{props.username}</span>
-        <span> - {tweetAgeDisplay}</span>
+        <div className={styles.infosTweetContainer}>
+          <span className={styles.pseudo}>{props.username}</span>
+          <span className={styles.infosTweet}>
+            @{props.username}MUSK - {tweetAgeDisplay}
+          </span>
+        </div>
       </div>
-      <div className={styles.tweetLine}>
-        {props.message} <span className={styles.hashtag}>#nomDuHashTag</span>
-      </div>
+      <div className={styles.tweetLine}>{formatMessage(props.message)}</div>
       <div className={styles.tweetLine}>
         <FontAwesomeIcon
           icon={faHeart}
