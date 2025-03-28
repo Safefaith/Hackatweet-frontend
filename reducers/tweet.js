@@ -10,7 +10,8 @@ export const tweetSlice = createSlice({
   reducers: {
     addTweetToStore: (state, action) => {
       const { username, message } = action.payload;
-      state.value.push({ username, message, date: new Date() });
+      const postDate = new Date();
+      state.value.push({ username, message, date: postDate });
     },
     deleteTweetFromStore: (state, action) => {
       state.value = state.value.filter(tweet => tweet.date !== action.payload.date);
