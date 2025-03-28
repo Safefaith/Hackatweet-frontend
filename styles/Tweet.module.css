@@ -27,6 +27,7 @@
 
 .hashtag {
     color: dodgerblue;
+    font-weight: bold;
 }
 
 .hashtag:hover {
@@ -37,4 +38,8 @@
 .iconTweet {
     height: 15px;
     width: 15px;
+}
+
+.likeCount {
+    margin-right: 10px;
 }
