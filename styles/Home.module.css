@@ -20,6 +20,11 @@
 
 .logo {
     cursor: pointer;
+    transition: 0.2s ease-in-out
+}
+
+.logo:hover {
+    transform: scale(1.05)
 }
 
 .bottomLeft {
@@ -48,6 +53,11 @@
     border: 1px solid white;
     border-radius: 30px;
     cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btnLogout:hover {
+    transform: scale(1.07);
 }
 
 .mainHome {
@@ -109,15 +119,32 @@
     border: 1px solid white;
 }
 
+.tweetSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    align-content: flex-start;
+    height: 85%;
+}
+
+.tweetSection::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+}
+
+.tweetSection::-webkit-scrollbar-thumb {
+    background: dodgerblue;
+    border-radius: 10px;
+}
+
 .rightHome {
     height: 100vh;
     width: 25vw;
     display: flex;
+    flex-direction: column;
     justify-content: left;
     align-items: left;
     color: white;
     padding: 15px;
-}
-
-.trendsContainer{
 }

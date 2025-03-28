@@ -6,10 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Image from "next/image";
 import Link from "next/link";
-import Tweet from "./Tweet";
 
 import LastTweets from "./LastTweets";
-import Trends from "./Hashtag";
+import Trends from "./Trends";
 import Head from "next/head";
 import { addTweetToStore } from "../reducers/tweet";
 
@@ -21,9 +20,7 @@ function Home() {
   const handleSubmit = () => {
     if (message.trim() === "") return;
 
-    dispatch(
-      addTweetToStore({ username, message, date: new Date().toISOString() })
-    );
+    dispatch(addTweetToStore({ username, message, date: new Date() }));
     setMessage("");
   };
 
@@ -52,10 +49,16 @@ function Home() {
           </Link>
           <div className={styles.bottomLeft}>
             <div className={styles.userContainer}>
-              <Image src="/logo.png" alt="Logo" width={50} height={50} />
+              <Image
+                style={{ borderRadius: "100%" }}
+                src="/elonmusk.png"
+                alt="Logo"
+                width={50}
+                height={50}
+              />
               <div className={styles.userName}>
                 <span>{username}</span>
-                <p>@{username}</p>
+                <p>@{username}MUSK</p>
               </div>
             </div>
             <Link href="/">
@@ -93,17 +96,20 @@ function Home() {
             </div>
           </div>
           <div className={styles.tweetSection}>
-            <Link href="/hashtag">
+            {/* <Link href="/hashtag">
               <button>Go to Trends Page</button>
-            </Link>
+            </Link> */}
             <LastTweets />
           </div>
         </div>
 
         <div className={styles.rightHome}>
           <h2>Trends</h2>
+
+          <div className={styles.trendsContainer}>
+            <Trends />
+          </div>
         </div>
-        <div className={styles.trendsContainer}>{Trends}</div>
       </main>
     </div>
   );
