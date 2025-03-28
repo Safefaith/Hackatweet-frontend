@@ -5,6 +5,7 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import user from "../reducers/user";
+import tweet from "../reducers/tweet";
 
 // Redux-persist
 /*
@@ -16,7 +17,7 @@ const persistConfig = { key: 'hackatweet', storage };
 */
 
 const store = configureStore({
-  reducer: { user },
+  reducer: { user, tweet },
 });
 
 function App({ Component, pageProps }) {
