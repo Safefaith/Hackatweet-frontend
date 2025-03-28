@@ -2,9 +2,13 @@ import styles from "../styles/Tweet.module.css";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { deleteTweetFromStore } from "../reducers/tweet";
 
 function Tweet(props) {
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
   // Temps depuis le post du tweet
   const tweetAge = new Date() - props.date; // Âge du tweet en millisecondes
   const TweetAgeMinutes = Math.abs(Math.round(tweetAge / (1000 * 60))); // Conversion en minutes
@@ -22,9 +26,9 @@ function Tweet(props) {
     tweetAgeDisplay = "a few seconds";
   }
 
+  // Identification des hashtags du message
   const formatMessage = (message) => {
     const hashtagRegex = /#\w+/g;
-
     return message.split(/(\s+)/).map((word, index) => {
       if (hashtagRegex.test(word)) {
         return (
@@ -37,13 +41,29 @@ function Tweet(props) {
     });
   };
 
-  // ♥ tweet
-  let heartIconStyle = { cursor: "pointer" };
+  // Like tweet
+  // let heartIconStyle = { cursor: "pointer" };
+  // if (isLiked) {
+  //   heartIconStyle = { color: "red", cursor: "pointer" };
+  //   setLikeCount(likeCount + 1);
+  // } else {
+  //   heartIconStyle = { color: "white", cursor: "pointer" };
+  //   setLikeCount(likeCount - 1);
+  // }
+
   const handleLike = () => {
-    props.isLiked = !isLiked;
-    isLiked
-      ? (heartIconStyle = { color: "red", cursor: "pointer" })
-      : (heartIconStyle = { color: "white", cursor: "pointer" });
+    setIsLiked(!isLiked);
+    if (isLiked) {
+      setLikeCount(likeCount - 1);
+    } else {
+      setLikeCount(likeCount + 1);
+    }
+  };
+
+  // Delete tweet
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    dispatch(deleteTweetFromStore(props));
   };
 
   return (
@@ -68,11 +88,17 @@ function Tweet(props) {
         <FontAwesomeIcon
           icon={faHeart}
           onClick={() => handleLike()}
-          style={heartIconStyle}
+          style={{ color: isLiked ? "red" : "white" }}
           className={styles.iconTweet}
         />
-        <span>(like count) </span>
-        <FontAwesomeIcon className={styles.iconTweet} icon={faTrash} />
+        <div className={styles.likeCount}>
+          <span> {likeCount}</span>
+        </div>
+        <FontAwesomeIcon
+          icon={faTrash}
+          onClick={() => handleDelete()}
+          className={styles.iconTweet}
+        />
       </div>
     </div>
   );

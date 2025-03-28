@@ -104,7 +104,9 @@ function Home() {
         </div>
 
         <div className={styles.rightHome}>
-          <h2>Trends</h2>
+          <Link href="/hashtag">
+            <h2>Trends</h2>
+          </Link>
 
           <div className={styles.trendsContainer}>
             <Trends />
