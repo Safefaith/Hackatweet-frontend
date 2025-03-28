@@ -6,20 +6,30 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Image from "next/image";
 import Link from "next/link";
+import Tweet from "./Tweet";
 
 import LastTweets from "./LastTweets";
 import Trends from "./Hashtag";
 import Head from "next/head";
+import { addTweetToStore } from "../reducers/tweet";
 
 function Home() {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.value.username);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = () => {
+    if (message.trim() === "") return;
+
+    dispatch(
+      addTweetToStore({ username, message, date: new Date().toISOString() })
+    );
+    setMessage("");
+  };
 
   const handleLogout = () => {
     dispatch(logout());
   };
-
-  const [message, setMessage] = useState("");
 
   return (
     <div>
@@ -74,7 +84,12 @@ function Home() {
             ></input>
             <div className={styles.tweetBtnContainer}>
               <span>{message.length}/280</span>
-              <button className={styles.tweetBtn}>Tweet</button>
+              <button
+                onClick={() => handleSubmit()}
+                className={styles.tweetBtn}
+              >
+                Tweet
+              </button>
             </div>
           </div>
           <div className={styles.tweetSection}>

@@ -2,8 +2,13 @@ import styles from "../styles/Tweet.module.css";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 function Tweet(props) {
+  const formattedTime = new Date(props.date).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   // ♥ tweet
   let heartIconStyle = { cursor: "pointer" };
   const handleLike = () => {
@@ -20,11 +25,11 @@ function Tweet(props) {
           height={50}
           style={{ borderRadius: "100%" }}
         />
-        <span>@Username</span>
-        <span> - age of the tweet</span>
+        <span>@{props.username}</span>
+        <span> - {formattedTime}</span>
       </div>
       <div className={styles.tweetLine}>
-        Contenu du tweet <span className={styles.hashtag}>#nomDuHashTag</span>
+        {props.message} <span className={styles.hashtag}>#nomDuHashTag</span>
       </div>
       <div className={styles.tweetLine}>
         <FontAwesomeIcon

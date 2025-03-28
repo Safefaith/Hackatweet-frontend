@@ -1,19 +1,17 @@
-import styles from '../styles/LastTweets.module.css';
-import Tweet from './Tweet';
-
+import styles from "../styles/LastTweets.module.css";
+import Tweet from "./Tweet";
+import { useSelector } from "react-redux";
 
 function LastTweets() {
-    
-    const isLiked = false;
-    const tweets = [
-        < Tweet isLiked={isLiked} />
-    ]
+  const tweets = useSelector((state) => state.tweet.value);
+  const tweetList = tweets.map((e, i) => (
+    <Tweet key={i} username={e.username} message={e.message} date={e.date} />
+  ));
 
-  return (
-    <div>
-        { tweets }
-    </div>
-  );
+  // const isLiked = false;
+  // const tweets = [<Tweet isLiked={isLiked} />];
+
+  return <div>{tweetList}</div>;
 }
 
 export default LastTweets;
