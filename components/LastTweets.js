@@ -3,11 +3,9 @@ import Tweet from './Tweet';
 
 
 function LastTweets() {
-    
-    const isLiked = false;
-    const tweets = [
-        < Tweet isLiked={isLiked} />
-    ]
+
+  const tweets = <Tweet/>;
+
 
   return (
     <div>

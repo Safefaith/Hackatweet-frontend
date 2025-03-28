@@ -7,7 +7,8 @@ function Tweet(props) {
   // ♥ tweet
   let heartIconStyle = { cursor: "pointer" };
   const handleLike = () => {
-    heartIconStyle = { color: "red", cursor: "pointer" };
+    props.isLiked = !isLiked;
+    isLiked ? heartIconStyle = { color: "red", cursor: "pointer" } : heartIconStyle = { color: "white", cursor: "pointer" };
   };
 
   return (
