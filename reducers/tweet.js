@@ -10,7 +10,7 @@ export const tweetSlice = createSlice({
   reducers: {
     addTweetToStore: (state, action) => {
       const { username, message } = action.payload;
-      state.value.push({ username, message, date: new Date().toISOString() });
+      state.value.push({ username, message, date: new Date() });
     },
   },
 });

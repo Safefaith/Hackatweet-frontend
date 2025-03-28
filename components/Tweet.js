@@ -5,10 +5,25 @@ import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 
 function Tweet(props) {
-  const formattedTime = new Date(props.date).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+
+  // Temps depuis le post du tweet
+  const tweetAge = new Date() - props.date; // Âge du tweet en millisecondes
+  const TweetAgeMinutes = Math.abs(Math.round(tweetAge / (1000 * 60 ))); // Conversion en minutes
+  const TweetAgeHours = Math.abs(Math.round(tweetAge / (1000 * 60 * 60 ))); // Conversion en heures
+  let tweetAgeDisplay = ''; // Texte à afficher
+  if (TweetAgeMinutes >= 60) {
+    tweetAgeDisplay = `${TweetAgeHours} hours`;
+  } else if (TweetAgeMinutes >= 60) {
+    tweetAgeDisplay = '1 hour';
+  } else if (TweetAgeMinutes >= 2) {
+    tweetAgeDisplay = `${TweetAgeMinutes} minutes`;
+  } else if (TweetAgeMinutes >= 1) {
+    tweetAgeDisplay = '1 minute';
+  } else {
+    tweetAgeDisplay = 'a few seconds';
+  };
+
+
   // ♥ tweet
   let heartIconStyle = { cursor: "pointer" };
   const handleLike = () => {
@@ -27,7 +42,7 @@ function Tweet(props) {
           style={{ borderRadius: "100%" }}
         />
         <span>@{props.username}</span>
-        <span> - {formattedTime}</span>
+        <span> - {tweetAgeDisplay}</span>
       </div>
       <div className={styles.tweetLine}>
         {props.message} <span className={styles.hashtag}>#nomDuHashTag</span>
