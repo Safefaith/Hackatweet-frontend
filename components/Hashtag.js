@@ -1,17 +1,13 @@
-import styles from "../styles/Home.module.css";
-
+import styles from "../styles/Trends.module.css";
+import Image from "next/image";
 import { useState } from "react";
 import { logout } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
-
-import Image from "next/image";
 import Link from "next/link";
-
-import LastTweets from "./LastTweets";
-import Trends from "./Hashtag";
+import Tweet from "./Tweet";
 import Head from "next/head";
 
-function Home() {
+function Hashtag() {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.value.username);
 
@@ -22,11 +18,11 @@ function Home() {
   const [message, setMessage] = useState("");
 
   return (
-    <div>
+    <>
       <Head>
-        <title>Hackatweet-Home</title>
+        <title>Hackatweet-Trends</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Home-Hackatweet" />
+        <meta name="description" content="Trends-Hackatweet" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main className={styles.main}>
@@ -61,37 +57,30 @@ function Home() {
 
         <div className={styles.mainHome}>
           <div className={styles.topMainHome}>
-            <h2>Home</h2>
-            <input
-              className={styles.tweetInput}
-              placeholder="What's up?"
-              type="text"
-              maxLength="280"
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              value={message}
-            ></input>
-            <div className={styles.tweetBtnContainer}>
-              <span>{message.length}/280</span>
-              <button className={styles.tweetBtn}>Tweet</button>
+            <h2>Hashtag</h2>
+            <div className={styles.inputContainer}>
+              <input
+                className={styles.hashtagInput}
+                placeholder="Search with #"
+                type="text"
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+                value={message}
+              ></input>
             </div>
           </div>
           <div className={styles.tweetSection}>
-            <Link href="/hashtag">
-              <button>Go to Trends Page</button>
-            </Link>
-            <LastTweets />
+            <Tweet />
           </div>
         </div>
 
         <div className={styles.rightHome}>
           <h2>Trends</h2>
         </div>
-        <div className={styles.trendsContainer}>{Trends}</div>
       </main>
-    </div>
+    </>
   );
 }
 
-export default Home;
+export default Hashtag;
