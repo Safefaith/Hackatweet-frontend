@@ -5,25 +5,22 @@ import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 
 function Tweet(props) {
-
   // Temps depuis le post du tweet
   const tweetAge = new Date() - props.date; // Âge du tweet en millisecondes
-  const TweetAgeMinutes = Math.abs(Math.round(tweetAge / (1000 * 60 ))); // Conversion en minutes
-  const TweetAgeHours = Math.abs(Math.round(tweetAge / (1000 * 60 * 60 ))); // Conversion en heures
-  let tweetAgeDisplay = ''; // Texte à afficher
+  const TweetAgeMinutes = Math.abs(Math.round(tweetAge / (1000 * 60))); // Conversion en minutes
+  const TweetAgeHours = Math.abs(Math.round(tweetAge / (1000 * 60 * 60))); // Conversion en heures
+  let tweetAgeDisplay = ""; // Texte à afficher
   if (TweetAgeMinutes >= 60) {
     tweetAgeDisplay = `${TweetAgeHours} hours`;
   } else if (TweetAgeMinutes >= 60) {
-    tweetAgeDisplay = '1 hour';
+    tweetAgeDisplay = "1 hour";
   } else if (TweetAgeMinutes >= 2) {
     tweetAgeDisplay = `${TweetAgeMinutes} minutes`;
   } else if (TweetAgeMinutes >= 1) {
-    tweetAgeDisplay = '1 minute';
+    tweetAgeDisplay = "1 minute";
   } else {
-    tweetAgeDisplay = 'a few seconds';
-  };
-
-
+    tweetAgeDisplay = "a few seconds";
+  }
 
   const formatMessage = (message) => {
     const hashtagRegex = /#\w+/g;
@@ -39,6 +36,7 @@ function Tweet(props) {
       return <span key={index}>{word}</span>;
     });
   };
+
   // ♥ tweet
   let heartIconStyle = { cursor: "pointer" };
   const handleLike = () => {
