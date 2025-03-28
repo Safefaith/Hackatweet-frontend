@@ -1,15 +1,19 @@
-import styles from "../styles/Trends.module.css";
+import styles from "../styles/Hashtag.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import { logout } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import Tweet from "./Tweet";
+import Trends from "./Trends";
 import Head from "next/head";
+import Tweet from "./Tweet";
 
 function Hashtag() {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.value.username);
+  const tweets = useSelector((state) => state.tweet.value);
+
+  const tweetList = tweets.map((e, i) => {});
 
   const handleLogout = () => {
     dispatch(logout());
@@ -20,7 +24,7 @@ function Hashtag() {
   return (
     <>
       <Head>
-        <title>Hackatweet-Trends</title>
+        <title>Hackatweet-Hashtag</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Trends-Hackatweet" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -70,13 +74,11 @@ function Hashtag() {
               ></input>
             </div>
           </div>
-          <div className={styles.tweetSection}>
-            <Tweet />
-          </div>
+          <div className={styles.hashtagSection}>{tweetList}</div>
         </div>
-
         <div className={styles.rightHome}>
           <h2>Trends</h2>
+          <Trends />
         </div>
       </main>
     </>
